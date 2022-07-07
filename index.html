@@ -1,58 +1,999 @@
-<html>
+<html lang="en-US">
  <head> 
   <meta charset="UTF-8"> 
-  <meta name="authoring-tool" content="Adobe_Animate_CC"> 
-  <title>_HTML5 Canvas</title> 
-  <!-- write your code here --> 
-  <script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init() {
-	canvas = document.getElementById("canvas");
-	anim_container = document.getElementById("animation_container");
-	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("7E856D57F87D54409059EBE3B9DE6438");
-	var lib=comp.getLibrary();
-	var loader = new createjs.LoadQueue(false);
-	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
-	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
-	var lib=comp.getLibrary();
-	loader.loadManifest(lib.properties.manifest);
-}
-function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
-}
-function handleComplete(evt,comp) {
-	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-	var lib=comp.getLibrary();
-	var ss=comp.getSpriteSheet();
-	var queue = evt.target;
-	var ssMetadata = lib.ssMetadata;
-	for(i=0; i<ssMetadata.length; i++) {
-		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-	}
-	exportRoot = new lib._HTML5Canvas();
-	stage = new lib.Stage(canvas);	
-	//Registers the "tick" event listener.
-	fnStartAnimation = function() {
-		stage.addChild(exportRoot);
-		createjs.Ticker.framerate = lib.properties.fps;
-		createjs.Ticker.addEventListener("tick", stage);
-	}	    
-	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
-	AdobeAn.compositionLoaded(lib.properties.id);
-	fnStartAnimation();
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="profile" href="https://gmpg.org/xfn/11"> 
+  <meta name="robots" content="index, max-image-preview:large"> 
+  <link rel="preload" as="style" href="https://catperku.com/wp-content/cache/asset-cleanup/css/item/parent-style-v6735ed30db40e800922b890f3afc5440753a6015.css" data-wpacu-preload-css-basic="1"> 
+  <link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Roboto%3A400%2C300%7CLibre+Baskerville%3A400&amp;ver=1.0.4&amp;display=auto" data-wpacu-preload-css-basic="1"> 
+  <link rel="preload" as="script" href="https://catperku.com/wp-content/themes/bold/js/app.min.js" data-wpacu-preload-js="1"> 
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2" data-wpacu-preload-font="1" crossorigin=""> 
+  <title>Travel Blogger Indonesia Blog Wisata Catperku.com</title> 
+  <meta name="description" content="Catperku.com (Travel Blogger Indonesia) adalah travel blog wisata yang dikelola oleh Fahmi, Travel Blogger dari Indonesia. Follow dan subscribe ya!"> 
+  <link rel="canonical" href="https://catperku.com/"> 
+  <link rel="next" href="https://catperku.com/page/2/"> 
+  <meta property="og:locale" content="en_US"> 
+  <meta property="og:type" content="website"> 
+  <meta property="og:title" content="Catperku.com"> 
+  <meta property="og:description" content="Catperku.com (Travel Blogger Indonesia) adalah travel blog wisata yang dikelola oleh Fahmi, Travel Blogger dari Indonesia. Follow dan subscribe ya!"> 
+  <meta property="og:url" content="https://catperku.com/"> 
+  <meta property="og:site_name" content="Catperku.com"> 
+  <meta name="twitter:card" content="summary_large_image"> 
+  <meta name="twitter:site" content="@catperku"> 
+  <meta name="yandex-verification" content="5c328f59b080fdaf"> 
+  <meta property="og:video" content="https://www.youtube.com/embed/Pfa25T5hV9I"> 
+  <meta property="og:video:type" content="text/html"> 
+  <meta property="og:video:duration" content="559"> 
+  <meta property="og:video:width" content="480"> 
+  <meta property="og:video:height" content="270"> 
+  <meta property="ya:ovs:adult" content="false"> 
+  <meta property="ya:ovs:allow_embed" content="true"> 
+  <link rel="amphtml" href="https://catperku.com/amp/">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com"> 
+  <link rel="dns-prefetch" href="//cdn.statically.io"> 
+  <link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect"> 
+  <link rel="alternate" type="application/rss+xml" title="Catperku.com » Feed" href="https://catperku.com/feed/"> 
+  <link rel="alternate" type="application/rss+xml" title="Catperku.com » Comments Feed" href="https://catperku.com/comments/feed/"> 
+  <script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
+				var mi_version = '8.3.2';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStrs = [
+															'ga-disable-UA-27643139-1',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						if ( document.cookie.indexOf( disableStrs[ index ] + '=true' ) > -1 ) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if ( __gtagTrackerIsOptedOut() ) {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						document.cookie = disableStrs[ index ] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				if ( 'undefined' === typeof gaOptout ) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if ( mi_track_user ) {
+					function __gtagDataLayer() {
+						dataLayer.push( arguments );
+					}
+
+					function __gtagTracker( type, name, parameters ) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply( null, arguments );
+							return;
+						}
+
+						if ( type === 'event' ) {
+							
+															parameters.send_to = monsterinsights_frontend.ua;
+								__gtagDataLayer( type, name, parameters );
+													} else {
+							__gtagDataLayer.apply( null, arguments );
+						}
+					}
+					__gtagTracker( 'js', new Date() );
+					__gtagTracker( 'set', {
+						'developer_id.dZGIzZG' : true,
+											} );
+															__gtagTracker( 'config', 'UA-27643139-1', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;											(function () {
+							/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+							/* ga and __gaTracker compatibility shim. */
+							var noopfn = function () {
+								return null;
+							};
+							var newtracker = function () {
+								return new Tracker();
+							};
+							var Tracker = function () {
+								return null;
+							};
+							var p = Tracker.prototype;
+							p.get = noopfn;
+							p.set = noopfn;
+							p.send = function (){
+								var args = Array.prototype.slice.call(arguments);
+								args.unshift( 'send' );
+								__gaTracker.apply(null, args);
+							};
+							var __gaTracker = function () {
+								var len = arguments.length;
+								if ( len === 0 ) {
+									return;
+								}
+								var f = arguments[len - 1];
+								if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+									if ( 'send' === arguments[0] ) {
+										var hitConverted, hitObject = false, action;
+										if ( 'event' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[3] ) {
+												hitObject = {
+													'eventAction': arguments[3],
+													'eventCategory': arguments[2],
+													'eventLabel': arguments[4],
+													'value': arguments[5] ? arguments[5] : 1,
+												}
+											}
+										}
+										if ( 'pageview' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[2] ) {
+												hitObject = {
+													'eventAction': 'page_view',
+													'page_path' : arguments[2],
+												}
+											}
+										}
+										if ( typeof arguments[2] === 'object' ) {
+											hitObject = arguments[2];
+										}
+										if ( typeof arguments[5] === 'object' ) {
+											Object.assign( hitObject, arguments[5] );
+										}
+										if ( 'undefined' !== typeof arguments[1].hitType ) {
+											hitObject = arguments[1];
+											if ( 'pageview' === hitObject.hitType ) {
+												hitObject.eventAction = 'page_view';
+											}
+										}
+										if ( hitObject ) {
+											action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+											hitConverted = mapArgs( hitObject );
+											__gtagTracker( 'event', action, hitConverted );
+										}
+									}
+									return;
+								}
+
+								function mapArgs( args ) {
+									var arg, hit = {};
+									var gaMap = {
+										'eventCategory': 'event_category',
+										'eventAction': 'event_action',
+										'eventLabel': 'event_label',
+										'eventValue': 'event_value',
+										'nonInteraction': 'non_interaction',
+										'timingCategory': 'event_category',
+										'timingVar': 'name',
+										'timingValue': 'value',
+										'timingLabel': 'event_label',
+										'page' : 'page_path',
+										'location' : 'page_location',
+										'title' : 'page_title',
+									};
+									for ( arg in args ) {
+																				if ( ! ( ! args.hasOwnProperty(arg) || ! gaMap.hasOwnProperty(arg) ) ) {
+											hit[gaMap[arg]] = args[arg];
+										} else {
+											hit[arg] = args[arg];
+										}
+									}
+									return hit;
+								}
+
+								try {
+									f.hitCallback();
+								} catch ( ex ) {
+								}
+							};
+							__gaTracker.create = newtracker;
+							__gaTracker.getByName = newtracker;
+							__gaTracker.getAll = function () {
+								return [];
+							};
+							__gaTracker.remove = noopfn;
+							__gaTracker.loaded = true;
+							window['__gaTracker'] = __gaTracker;
+						})();
+									} else {
+										console.log( "" );
+					( function () {
+							function __gtagTracker() {
+								return null;
+							}
+							window['__gtagTracker'] = __gtagTracker;
+							window['gtag'] = __gtagTracker;
+					} )();
+									}
+			</script> 
+  <link rel="stylesheet" id="wp-block-library-css" href="https://cdn.statically.io/wp/c/6.0/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all"> 
+  <style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style> 
+  <link data-wpacu-to-be-preloaded-basic="1" rel="stylesheet" id="parent-style-css" href="https://catperku.com/wp-content/cache/asset-cleanup/css/item/parent-style-v6735ed30db40e800922b890f3afc5440753a6015.css" type="text/css" media="all"> 
+  <link data-wpacu-to-be-preloaded-basic="1" rel="stylesheet" id="bold-fonts-css" href="//fonts.googleapis.com/css?family=Roboto%3A400%2C300%7CLibre+Baskerville%3A400&amp;ver=1.0.4&amp;display=auto" type="text/css" media="all"> 
+  <script type="text/javascript" id="monsterinsights-frontend-script-js-extra">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/catperku.com","hash_tracking":"false","ua":"UA-27643139-1","v4_id":""};
+/* ]]> */
 </script> 
-  <!-- write your code here --> 
+  <!-- --> 
+  <!--<script type="text/javascript">
+/* <![CDATA[ */
+// Comprehensive Google Map plugin v9.1.2
+var CGMPGlobal = {"ajaxurl":"https:\/\/catperku.com\/wp-admin\/admin-ajax.php","noBubbleDescriptionProvided":"No description provided","geoValidationClientRevalidate":"REVALIDATE","cssHref":"https:\/\/catperku.com\/wp-content\/plugins\/comprehensive-google-map-plugin\/style.css?ver=9.1.2","language":"en","customMarkersUri":"https:\/\/catperku.com\/wp-content\/plugins\/comprehensive-google-map-plugin\/assets\/css\/images\/markers\/","kml":"[TITLE] [MSG] ([STATUS])","kmlDocInvalid":"The KML file is not a valid KML, KMZ or GeoRSS document.","kmlFetchError":"The KML file could not be fetched.","kmlLimits":"The KML file exceeds the feature limits of KmlLayer.","kmlNotFound":"The KML file could not be found. Most likely it is an invalid URL, or the document is not publicly available.","kmlRequestInvalid":"The KmlLayer is invalid.","kmlTimedOut":"The KML file could not be loaded within a reasonable amount of time.","kmlTooLarge":"The KML file exceeds the file size limits of KmlLayer.","kmlUnknown":"The KML file failed to load for an unknown reason.","address":"Address","streetView":"Street View","directions":"Directions","toHere":"To here","fromHere":"From here","mapFillViewport":"false","timestamp":"1d9b25598e","ajaxCacheMapAction":"cgmp_ajax_cache_map_action","sep":"{}"}
+/* ]]> */
+</script>--> 
+  <!-- -->
+  <style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style>
+  <link rel="icon" href="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-logo-copy-5518e549v1_site_icon-32x32.png" sizes="32x32"> 
+  <link rel="icon" href="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-logo-copy-5518e549v1_site_icon-256x256.png" sizes="192x192"> 
+  <link rel="apple-touch-icon" href="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-logo-copy-5518e549v1_site_icon-256x256.png"> 
+  <meta name="msapplication-TileImage" content="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-logo-copy-5518e549v1_site_icon.png"> 
+  <style type="text/css" id="wp-custom-css">
+			.c-content a {
+  color: #82b965;
+}
+
+.c-header {
+    min-height: 64px;
+    padding: 16px 0;
+    background-color: #82b965
+}
+
+.c-footer {
+    padding: 16px 0;
+    background-color: #82b965;
+    border-top: 1px solid #e9eff3;
+}
+
+.c-btn, input[type='submit'] {
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 500ms;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    outline: none;
+    line-height: inherit;
+    border: 0;
+    color: #FFF;
+    background-color: #000000;
+    font-size: 16px;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.OneSignal-prompt {
+    color: #ffffff;
+    text-decoration: bold;
+}		</style> 
+  <style type="text/css">
+        
+    /* Multi-row tables */
+    @media (max-width: 650px) {
+
+        .mtr-table tbody,
+        .mtr-table {
+        	width: 100% !important;
+            display: table !important;
+        }
+
+        .mtr-table tr,
+        .mtr-table .mtr-th-tag,
+        .mtr-table .mtr-td-tag {
+        	display: block !important;
+            clear: both !important;
+            height: auto !important;
+        }
+
+        .mtr-table .mtr-td-tag,
+        .mtr-table .mtr-th-tag {
+        	text-align: right !important;
+            width: auto !important;
+            box-sizing: border-box !important;
+            overflow: auto !important;
+        }
+    
+            .mtr-table .mtr-cell-content {
+            	text-align: right !important;
+            }
+            
+        .mtr-table tbody,
+        .mtr-table tr,
+        .mtr-table {
+        	border: none !important;
+            padding: 0 !important;
+        }
+
+        .mtr-table .mtr-td-tag,
+        .mtr-table .mtr-th-tag {
+        	border: none;
+        }
+
+        .mtr-table tr:nth-child(even) .mtr-td-tag,
+        .mtr-table tr:nth-child(even) .mtr-th-tag {
+            border-bottom: 1px solid #dddddd !important;
+            border-left: 1px solid #dddddd !important;
+            border-right: 1px solid #dddddd !important;
+            border-top: none !important;
+        }
+
+        .mtr-table tr:nth-child(odd) .mtr-td-tag,
+        .mtr-table tr:nth-child(odd) .mtr-th-tag {
+            border-bottom: 1px solid #bbbbbb !important;
+            border-left: 1px solid #bbbbbb !important;
+            border-right: 1px solid #bbbbbb !important;
+            border-top: none !important;
+        }
+
+        .mtr-table tr:first-of-type td:first-of-type,
+        .mtr-table tr:first-of-type th:first-of-type {
+            border-top: 1px solid #bbbbbb !important;
+        }
+
+        .mtr-table.mtr-thead-td tr:nth-of-type(2) td:first-child,
+        .mtr-table.mtr-thead-td tr:nth-of-type(2) th:first-child,
+        .mtr-table.mtr-tr-th tr:nth-of-type(2) td:first-child,
+        .mtr-table.mtr-tr-th tr:nth-of-type(2) th:first-child,
+        .mtr-table.mtr-tr-td tr:nth-of-type(2) td:first-child,
+        .mtr-table.mtr-tr-td tr:nth-of-type(2) th:first-child {
+            border-top: 1px solid #dddddd !important;
+        }
+            .mtr-table tr:nth-child(even),
+            .mtr-table tr:nth-child(even) .mtr-td-tag,
+            .mtr-table tr:nth-child(even) .mtr-th-tag {
+                background: #ffffff !important;
+            }
+
+            .mtr-table tr:nth-child(odd),
+            .mtr-table tr:nth-child(odd) .mtr-td-tag,
+            .mtr-table tr:nth-child(odd) .mtr-th-tag {
+                background: #dddddd !important;
+            }
+        .mtr-table .mtr-td-tag,
+        .mtr-table .mtr-td-tag:first-child,
+        .mtr-table .mtr-th-tag,
+        .mtr-table .mtr-th-tag:first-child {
+            padding: 5px 10px !important;
+        }
+        
+        .mtr-table td[data-mtr-content]:before,
+        .mtr-table th[data-mtr-content]:before {
+        	display: inline-block !important;
+        	content: attr(data-mtr-content) !important;
+        	float: left !important;
+            text-align: left !important;
+            white-space: pre-line !important;
+        }
+        
+        .mtr-table thead,
+        .mtr-table.mtr-tr-th tr:first-of-type,
+        .mtr-table.mtr-tr-td tr:first-of-type,
+        .mtr-table colgroup {
+        	display: none !important;
+        }
+    
+        .mtr-cell-content {
+            max-width: 49% !important;
+            display: inline-block !important;
+        }
+            
+        .mtr-table td[data-mtr-content]:before,
+        .mtr-table th[data-mtr-content]:before {
+            max-width: 49% !important;
+        }
+            
+    }
+    
+    /* Single-row tables */
+    @media (max-width: 650px) {
+
+        .mtr-one-row-table .mtr-td-tag,
+        .mtr-one-row-table .mtr-th-tag {
+            box-sizing: border-box !important;
+        }
+
+        .mtr-one-row-table colgroup {
+        	display: none !important;
+        }
+
+    
+        .mtr-one-row-table tbody,
+        .mtr-one-row-table tr,
+        .mtr-one-row-table {
+        	border: none !important;
+            padding: 0 !important;
+            width: 100% !important;
+            display: block;
+        }
+
+        .mtr-one-row-table .mtr-td-tag,
+        .mtr-one-row-table .mtr-th-tag {
+            border: none;
+        }
+        
+        .mtr-one-row-table .mtr-td-tag,
+        .mtr-one-row-table .mtr-th-tag {
+        	display: block !important;
+            width: 50% !important;
+        }
+        .mtr-one-row-table tr {
+            display: flex !important;
+            flex-wrap: wrap !important;
+        }
+        
+            .mtr-one-row-table td:nth-child(4n+1),
+            .mtr-one-row-table th:nth-child(4n+1),
+            .mtr-one-row-table td:nth-child(4n+2),
+            .mtr-one-row-table th:nth-child(4n+2) {
+                background: #dddddd !important;
+            }
+
+            .mtr-one-row-table th:nth-child(2n+1),
+            .mtr-one-row-table td:nth-child(2n+1) {
+                border-right: 1px solid #bbbbbb !important;
+                border-left: 1px solid #bbbbbb !important;
+            }
+
+            .mtr-one-row-table td:nth-child(2n+2),
+            .mtr-one-row-table th:nth-child(2n+2) {
+                border-right: 1px solid #bbbbbb !important;
+            }
+
+            /* last two */
+            .mtr-one-row-table td:nth-last-child(-n+2),
+            .mtr-one-row-table th:nth-last-child(-n+2) {
+                border-bottom: 1px solid #bbbbbb !important;
+            }
+            
+        .mtr-one-row-table .mtr-td-tag,
+        .mtr-one-row-table .mtr-th-tag {
+            border-top: 1px solid #bbbbbb !important;
+            padding: 5px 10px !important;
+        }
+        
+    }
+    </style> 
+  <link rel="preload" as="script" href="https://catperku.com/wp-content/plugins/quick-adsense-reloaded/assets/js/ads.js">
+  <link rel="preload" as="script" href="https://catperku.com/wp-content/themes/bold/js/app.min.js">
+  <link rel="preload" as="script" href="https://catperku.com/wp-content/plugins/interlinks-manager/public/assets/js/track-internal-links.js">
+  <link rel="preload" as="script" href="https://cdn.statically.io/wp/c/6.0/wp-includes/js/jquery/jquery-migrate.min.js">
+  <link rel="preload" as="script" href="https://cdn.statically.io/wp/c/6.0/wp-includes/js/jquery/jquery.min.js">
+  <link rel="preload" as="script" href="https://catperku.com/wp-content/plugins/google-analytics-premium/assets/js/frontend-gtag.min.js">
  </head> 
- <body onload="init();" style="margin:0px;"> 
-  <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1920px; height:1080px"> 
-   <canvas id="canvas" width="3600" height="2025" style="position: absolute; display: block; background-color: rgb(255, 255, 255); width: 1920px; height: 1080px;"></canvas> 
-   <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1920px; height:1080px; position: absolute; left: 0px; top: 0px; display: block;"> 
+ <body class="home blog wp-custom-logo"> 
+  <a class="skip-link screen-reader-text" href="#content">Skip to content</a> 
+  <div class="js-off-canvas-container c-off-canvas-container"> 
+   <header class="c-header js-header c-header--no-cover"> 
+    <div class="o-grid"> 
+     <div class="o-grid__col o-grid__col--full"> 
+      <label class="js-off-canvas-toggle c-off-canvas-toggle" aria-label="Toggle navigation"> <span class="c-off-canvas-toggle__icon"></span> </label> 
+      <a href="https://catperku.com/" class="c-logo-link" rel="home" aria-current="page"><img width="472" height="120" src="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-new-logo-3-9-2015-1.png" class="c-logo" alt="Catperku.com" srcset="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-new-logo-3-9-2015-1.png 472w, https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/catperku-new-logo-3-9-2015-1-300x76.png 300w" sizes="(max-width: 472px) 100vw, 472px"></a> 
+      <div class="c-off-canvas-content js-off-canvas-content"> 
+       <label class="js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close"> <span class="c-off-canvas-toggle__icon"></span> </label> 
+       <h2 class="screen-reader-text">Primary Navigation</h2> 
+       <ul class="c-nav o-plain-list"> 
+        <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-11"><a href="https://catperku.com/about-me-catperku/">About Catperku</a> 
+         <ul class="sub-menu"> 
+          <li id="menu-item-1656" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1656"><a href="https://catperku.com/contact-me/">Contact Me</a></li> 
+          <li id="menu-item-3763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3763"><a href="https://catperku.com/kerjasama/">Kerjasama</a></li> 
+         </ul> </li> 
+        <li id="menu-item-17873" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17873"><a href="https://catperku.com/media-kit/">Media Kit</a></li> 
+        <li id="menu-item-10936" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10936"><a href="https://catperku.com/portofolio/">Portofolio</a></li> 
+        <li id="menu-item-17864" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17864"><a title="Youtube" href="https://catperku.com/travel-vlog-indonesia-motovlog-terbaru/">Youtube</a></li> 
+       </ul> 
+       <ul class="c-social-nav o-plain-list"> 
+        <li id="menu-item-27693" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27693"><a target="_blank" rel="noopener" href="https://facebook.com/catperku"><span class="screen-reader-text">Facebook catperku</span></a></li> 
+        <li id="menu-item-27694" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27694"><a target="_blank" rel="noopener" href="https://twitter.com/catperku"><span class="screen-reader-text">Twitter catperku</span></a></li> 
+        <li id="menu-item-27695" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27695"><a target="_blank" rel="noopener" href="https://instagram.com/catperku"><span class="screen-reader-text">Instagram catperku</span></a></li> 
+        <li id="menu-item-27696" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27696"><a target="_blank" rel="noopener" href="https://www.youtube.com/user/catperku"><span class="screen-reader-text">Youtube catperku</span></a></li> 
+        <li class="menu-item"> 
+         <div class="c-search-toggle js-search-toggle"> 
+          <div class="icon icon--ei-search icon--s c-search-toggle__icon">
+           <svg class="icon__cnt">
+            <use xlink:href="#ei-search-icon"></use>
+           </svg>
+          </div> 
+         </div> </li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </header> 
+   <div class="header-headroom-space"></div> 
+   <div class="c-search js-search"> 
+    <div class="o-grid"> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--3-4-m o-grid__col--2-4-l o-grid__col--center"> 
+      <form class="modal-search" method="get" action="https://catperku.com/"> 
+       <input class="c-search__input js-search-input" placeholder="Type and hit enter" name="s"> 
+      </form> 
+     </div> 
+    </div> 
+    <div data-icon="ei-close" data-size="s" class="c-search__close js-search-close"></div> 
    </div> 
+   <div class="o-wrapper" id="content"> 
+    <div class="o-grid js-grid"> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-26108 post type-post status-publish format-standard has-post-thumbnail hentry category-travelling category-uncategorized tag-motovlog tag-road-trip-indonesia tag-solo-riding tag-solo-touring tag-touring tag-touring-indonesia tag-travel-motovlog"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/riding-lewat-bendungan-lahor/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/riding-lewat-jalan-tol-blitar-ma.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/riding-lewat-bendungan-lahor/" class="c-post-card__info"> <h3 class="c-post-card__title">Riding Lewat “Jalan Tol” Blitar Malang, Lewat Bendungan Lahor! [ Motovlog ]</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Riding Lewat "Jalan Tol" Blitar Malang, Lewat Bendungan Lahor! [ Motovlog ] </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-07T13:27:59+07:00" title="2022-07-07T13:27:59+07:00"> July 7, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-25923 post type-post status-publish format-standard has-post-thumbnail hentry category-travel-vlog category-travelling tag-jalan-jalan-di-jepang tag-jalan-jalan-ke-jepang tag-liburan-ke-jepang"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/jalan-jalan-kulineran-di-takayama/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/enjoy-hida-beef-jalan-jalan-kuli.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/jalan-jalan-kulineran-di-takayama/" class="c-post-card__info"> <h3 class="c-post-card__title">Enjoy Hida Beef! Jalan-Jalan Kulineran Di Takayama Jepang! [Vlog Wisata Jepang]</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Enjoy Hida Beef! Jalan-Jalan Kulineran Di Takayama Jepang! [Vlog Wisata Jepang] </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-06T13:22:15+07:00" title="2022-07-06T13:22:15+07:00"> July 6, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-26016 post type-post status-publish format-standard has-post-thumbnail hentry category-motovlog category-travelling tag-road-trip-indonesia tag-solo-riding tag-solo-touring tag-touring tag-touring-indonesia"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/touring-yogyakarta-to-lamongan/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/touring-yogyakarta-to-lamongan-p.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/touring-yogyakarta-to-lamongan/" class="c-post-card__info"> <h3 class="c-post-card__title">Touring #Yogyakarta to #Lamongan [Pertamina Enduro Touring Go Out Adventure Day 28 ] [#Motovlog]</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Touring #Yogyakarta to #Lamongan [Pertamina Enduro Touring Go Out Adventure Day 28 ] [#Motovlog] </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-05T13:10:15+07:00" title="2022-07-05T13:10:15+07:00"> July 5, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-25819 post type-post status-publish format-standard has-post-thumbnail hentry category-info-transportasi-umum tag-jadwal-kereta-api tag-kereta-api tag-kereta-api-indonesia"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/jadwal-ka-argo-parahyangan-stasiun-gambir-ke-bandung/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/Kereta-Api-Gajayana-Luxury-memasuki-Stasiun-Gambir.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/jadwal-ka-argo-parahyangan-stasiun-gambir-ke-bandung/" class="c-post-card__info"> <h3 class="c-post-card__title">Jadwal KA Argo Parahyangan Stasiun Gambir Ke Bandung PP</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Kereta Api Argo Parahyangan Berangkat Dari Stasiun Gambir Jakarta! </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-04T12:56:35+07:00" title="2022-07-04T12:56:35+07:00"> July 4, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-26076 post type-post status-publish format-standard has-post-thumbnail hentry category-travelling category-uncategorized tag-pantai-di-jogja tag-travel-vlog-indonesia tag-wisata-di-jogja tag-wisata-jogja"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/pantai-wohkudu/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/pantai-wohkudu-yogyakarta-pantai.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/pantai-wohkudu/" class="c-post-card__info"> <h3 class="c-post-card__title">Pantai Wohkudu Yogyakarta, Pantai Di Gunungkidul Untuk Camping! [ Wisata Pantai Gunung Kidul ]</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Pantai Wohkudu Yogyakarta, Pantai Di Gunungkidul Untuk Camping! [ Wisata Pantai Gunung Kidul ] </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-03T12:49:53+07:00" title="2022-07-03T12:49:53+07:00"> July 3, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-post-card-wrap js-post-card-wrap post-25949 post type-post status-publish format-standard has-post-thumbnail hentry category-travel-vlog category-travelling tag-wisata-china tag-wisata-hainan"> 
+      <div class="c-post-card "> 
+       <a href="https://catperku.com/haikou-movie-town-hainan/" class="js-fadein c-post-card__image" style="background-image: url(https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/haikou-movie-town-hainan-wisata.jpg)"> <span title="Featured Post"> <span class="c-post-card--featured__icon" data-icon="ei-star" data-size="s"></span> </span> </a> 
+       <a href="https://catperku.com/haikou-movie-town-hainan/" class="c-post-card__info"> <h3 class="c-post-card__title">Haikou Movie Town Hainan [Wisata Hainan]</h3> <p class="c-post-card__excerpt"> Catperku (Travel Blogger Indonesia) – Haikou Movie Town Hainan [Wisata Hainan] </p> </a> 
+       <div class="c-post-card__footer"> 
+        <div class="c-post-card__author"> 
+         <div class="icon icon--ei-user icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-user-icon"></use>
+          </svg> 
+         </div> 
+         <a href="https://catperku.com/author/admincatperku/" title="Posts by Fahmi (catperku.com)" rel="author">Fahmi (catperku.com)</a> 
+        </div> 
+        <div class="c-post-card__date"> 
+         <div class="icon icon--ei-clock icon--s c-post-card__icon"> 
+          <svg class="icon__cnt">
+           <use xlink:href="#ei-clock-icon"></use>
+          </svg> 
+         </div> 
+         <time datetime="2022-07-02T12:38:10+07:00" title="2022-07-02T12:38:10+07:00"> July 2, 2022 </time> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="o-grid"> 
+     <div class="o-grid__col o-grid__col--full u-text-center"> 
+      <div class="c-ajax-pagination"> 
+       <button class="c-btn js-load-posts">Load More</button> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <footer class="c-footer"> 
+    <div class="o-grid"> 
+     <div class="o-grid__col o-grid__col--full"> 
+      <div class="c-footer__top"> 
+       <div class="o-grid"> 
+        <div class="o-grid__col o-grid__col--4-4-s o-grid__col--1-3-m"> 
+         <aside id="text-62" class="widget widget_text">
+          <h2 class="widget__title">About</h2> 
+          <div class="textwidget">
+           <figure id="attachment_27680" aria-describedby="caption-attachment-27680" style="width: 200px" class="wp-caption alignleft">
+            <img loading="lazy" class="wp-image-27680 size-full" src="https://cdn.statically.io/img/catperku.com/f=auto%2Cq=70/wp-content/uploads/2020/07/Travel-blogger-Indonesia-Rijal-fahmi-mohamadi-200px.jpeg" alt="Travel blogger Indonesia! Yes, it is me! :) " width="200" height="200">
+            <figcaption id="caption-attachment-27680" class="wp-caption-text">
+             Yes, it is me! :)
+            </figcaption>
+           </figure> 
+           <p><a href="https://catperku.com/portofolio/">catperku.com</a> adalah travel blog yang dikelola oleh Fahmi, Travel Blogger dari Indonesia. Dulunya mas-mas kantoran, tapi sekarang berjuang menjadi pekerja lepas demi kebebasan memilih waktu liburan. Suka liburan ke Pantai tapi jarang nyebur, hobi trekking karena demen jalan kaki. Suka traveling di Indonesia, tapi juga nggak nolak kalau ada kesempatan liburan ke luar negeri.</p> 
+           <p>Travel Blogger juga Travel Writer Indonesia yang bermimpi buat keliling dunia, traveling jalur darat Asia-Eropa, Naik kereta api lewat Trans-Siberia, lalu menghabiskan masa pensiun di desa. Nggak banyak kan mimpi saya? Anyway, kalau tertarik membantu mewujudkan mimpi saya, bisa hubungi di <strong><a href="mailto:catperku@gmail.com">catperku@gmail.com</a></strong> ya!</p> 
+          </div> 
+         </aside> 
+        </div> 
+        <div class="o-grid__col o-grid__col--4-4-s o-grid__col--1-3-m"> 
+         <aside id="search-4" class="widget widget_search">
+          <form role="search" method="get" class="search-form" action="https://catperku.com/"> 
+           <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search …" value="" name="s"> </label> 
+           <input type="submit" class="search-submit" value="Search"> 
+          </form>
+         </aside>
+         <aside id="text-57" class="widget widget_text">
+          <h2 class="widget__title">Kerjasama</h2> 
+          <div class="textwidget">
+           Untuk kerjasama bisa hubungi 
+           <a href="https://catperku.com/contact-me/" style="color:#ffffff; font-weight: bold;">disini</a> atau lewat email 
+           <b style="color:#ffffff; font-weight: bold;">catperku@gmail.com</b>. Untuk informasi lebih lanjut, bisa lihat halaman "
+           <a href="https://catperku.com/kerjasama/" style="color:#ffffff; font-weight: bold;">Kerjasama</a>" dan "
+           <a href="https://catperku.com/portofolio/" style="color:#ffffff; font-weight: bold;">Portofolio</a>".
+          </div> 
+         </aside>
+         <aside id="text-63" class="widget widget_text">
+          <h2 class="widget__title">Copyright</h2> 
+          <div class="textwidget">
+           <p>Kecuali disebutkan lain, tulisan dan foto yang ada di blog ini adalah milik penulis blog <a style="color: #ffffff; font-weight: bold;" href="https://catperku.com">catperku.com</a>. Pengutipan tulisan (<b>bukan copy paste seluruhnya</b>), juga pemakaian foto untuk tujuan non komersial diperbolehkan, tetapi harus mencantumkan link ke sumber aslinya(<b>link back ke <a style="color: #ffffff; font-weight: bold;" href="https://catperku.com">catperku.com</a></b>). Selain yang telah disebutkan penggunaan harus dilakukan dengan seijin penulis blog</p> 
+           <p>&nbsp;</p> 
+          </div> 
+         </aside> 
+        </div> 
+        <div class="o-grid__col o-grid__col--4-4-s o-grid__col--1-3-m"> 
+         <aside id="text-64" class="widget widget_text"> 
+          <div class="textwidget">
+           <p>Silahkan klik tulisan “Subscribe to catperku” diatas lalu klik “Allow” pada pop up untuk berlangganan. Kamu akan diberitahu setiap ada konten baru. Kamu boleh juga subscribe ke channel <a style="color: #ffffff; font-weight: bold;" href="https://www.youtube.com/catperku" target="_blank" rel="noopener">Youtube.com/catperku disini</a> ya.</p> 
+          </div> 
+         </aside> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="o-grid__col o-grid__col--full u-text-center u-font-small">
+       © 2022 
+      <a href="https://catperku.com/">Catperku.com</a> 
+     </div> 
+    </div> 
+   </footer> 
   </div> 
-  <div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div>
+  <!--<script type="text/javascript">
+		/* MonsterInsights Scroll Tracking */
+			if ( typeof(jQuery) !== 'undefined' ) {
+				jQuery( document ).ready(function(){
+					function monsterinsights_scroll_tracking_load() {
+						if ( ( typeof(__gaTracker) !== 'undefined' && __gaTracker && __gaTracker.hasOwnProperty( "loaded" ) && __gaTracker.loaded == true ) || ( typeof(__gtagTracker) !== 'undefined' && __gtagTracker ) ) {
+							(function(factory) {
+								factory(jQuery);
+							}(function($) {
+
+								/* Scroll Depth */
+								"use strict";
+								var defaults = {
+									percentage: true
+								};
+
+								var $window = $(window),
+									cache = [],
+									scrollEventBound = false,
+									lastPixelDepth = 0;
+
+								/*
+								 * Plugin
+								 */
+
+								$.scrollDepth = function(options) {
+
+									var startTime = +new Date();
+
+									options = $.extend({}, defaults, options);
+
+									/*
+									 * Functions
+									 */
+
+									function sendEvent(action, label, scrollDistance, timing) {
+										if ( 'undefined' === typeof MonsterInsightsObject || 'undefined' === typeof MonsterInsightsObject.sendEvent ) {
+											return;
+										}
+											var type        = 'event';
+	var eventName   = action;
+	var fieldsArray = {
+		event_category : 'Scroll Depth',
+		event_label    : label,
+		value          : 1,
+		non_interaction: true,
+		send_to: 'UA-27643139-1'
+	};
+
+	MonsterInsightsObject.sendEvent( type, eventName, fieldsArray );
+
+	if (arguments.length > 3) {
+		var type        = 'event';
+		var eventName   = 'timing_complete';
+		fieldsArray = {
+			event_category : 'Scroll Depth',
+			name           : action,
+			event_label    : label,
+			value          : timing,
+			non_interaction: 1,
+			send_to: 'UA-27643139-1'
+		};
+
+		MonsterInsightsObject.sendEvent( type, eventName, fieldsArray );
+	}
+										}
+
+									function calculateMarks(docHeight) {
+										return {
+											'25%' : parseInt(docHeight * 0.25, 10),
+											'50%' : parseInt(docHeight * 0.50, 10),
+											'75%' : parseInt(docHeight * 0.75, 10),
+											/* Cushion to trigger 100% event in iOS */
+											'100%': docHeight - 5
+										};
+									}
+
+									function checkMarks(marks, scrollDistance, timing) {
+										/* Check each active mark */
+										$.each(marks, function(key, val) {
+											if ( $.inArray(key, cache) === -1 && scrollDistance >= val ) {
+												sendEvent('Percentage', key, scrollDistance, timing);
+												cache.push(key);
+											}
+										});
+									}
+
+									function rounded(scrollDistance) {
+										/* Returns String */
+										return (Math.floor(scrollDistance/250) * 250).toString();
+									}
+
+									function init() {
+										bindScrollDepth();
+									}
+
+									/*
+									 * Public Methods
+									 */
+
+									/* Reset Scroll Depth with the originally initialized options */
+									$.scrollDepth.reset = function() {
+										cache = [];
+										lastPixelDepth = 0;
+										$window.off('scroll.scrollDepth');
+										bindScrollDepth();
+									};
+
+									/* Add DOM elements to be tracked */
+									$.scrollDepth.addElements = function(elems) {
+
+										if (typeof elems == "undefined" || !$.isArray(elems)) {
+											return;
+										}
+
+										$.merge(options.elements, elems);
+
+										/* If scroll event has been unbound from window, rebind */
+										if (!scrollEventBound) {
+											bindScrollDepth();
+										}
+
+									};
+
+									/* Remove DOM elements currently tracked */
+									$.scrollDepth.removeElements = function(elems) {
+
+										if (typeof elems == "undefined" || !$.isArray(elems)) {
+											return;
+										}
+
+										$.each(elems, function(index, elem) {
+
+											var inElementsArray = $.inArray(elem, options.elements);
+											var inCacheArray = $.inArray(elem, cache);
+
+											if (inElementsArray != -1) {
+												options.elements.splice(inElementsArray, 1);
+											}
+
+											if (inCacheArray != -1) {
+												cache.splice(inCacheArray, 1);
+											}
+
+										});
+
+									};
+
+									/*
+									 * Throttle function borrowed from:
+									 * Underscore.js 1.5.2
+									 * http://underscorejs.org
+									 * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+									 * Underscore may be freely distributed under the MIT license.
+									 */
+
+									function throttle(func, wait) {
+										var context, args, result;
+										var timeout = null;
+										var previous = 0;
+										var later = function() {
+											previous = new Date;
+											timeout = null;
+											result = func.apply(context, args);
+										};
+										return function() {
+											var now = new Date;
+											if (!previous) previous = now;
+											var remaining = wait - (now - previous);
+											context = this;
+											args = arguments;
+											if (remaining <= 0) {
+												clearTimeout(timeout);
+												timeout = null;
+												previous = now;
+												result = func.apply(context, args);
+											} else if (!timeout) {
+												timeout = setTimeout(later, remaining);
+											}
+											return result;
+										};
+									}
+
+									/*
+									 * Scroll Event
+									 */
+
+									function bindScrollDepth() {
+
+										scrollEventBound = true;
+
+										$window.on('scroll.scrollDepth', throttle(function() {
+											/*
+											 * We calculate document and window height on each scroll event to
+											 * account for dynamic DOM changes.
+											 */
+
+											var docHeight = $(document).height(),
+												winHeight = window.innerHeight ? window.innerHeight : $window.height(),
+												scrollDistance = $window.scrollTop() + winHeight,
+
+												/* Recalculate percentage marks */
+												marks = calculateMarks(docHeight),
+
+												/* Timing */
+												timing = +new Date - startTime;
+
+											checkMarks(marks, scrollDistance, timing);
+										}, 500));
+
+									}
+
+									init();
+								};
+
+								/* UMD export */
+								return $.scrollDepth;
+
+							}));
+
+							jQuery.scrollDepth();
+						} else {
+							setTimeout(monsterinsights_scroll_tracking_load, 200);
+						}
+					}
+					monsterinsights_scroll_tracking_load();
+				});
+			}
+		/* End MonsterInsights Scroll Tracking */
+		
+</script>-->
+  <!--<script type="text/javascript" id="daim-track-internal-links-js-before">
+window.DAIM_PARAMETERS = {ajax_url: "https://catperku.com/wp-admin/admin-ajax.php",nonce: "fa49731efd"};
+</script>--> 
+  <!-- --> 
+  <!--<script type="text/javascript" id="bold-main-script-js-extra">
+/* <![CDATA[ */
+var bold_config = {"bold_page_number_max":"180","bold_page_number_next":"2","bold_page_link_next":"https:\/\/catperku.com\/page\/9999999999\/","bold_load_more":"Load More","bold_loading":"Loading"};
+/* ]]> */
+</script>--> 
+  <!-- --> 
+  <!-- --> 
  </body>
 </html>
