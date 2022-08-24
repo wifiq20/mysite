@@ -1,0 +1,102 @@
+.container {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr  9.5fr  2fr;
+    grid-template-areas:
+    "nav nav nav"
+    "main main sidebar"
+    "footer footer footer";
+    grid-gap: 0.2rem;
+    font-size: 14px;
+ }
+ 
+ nav {
+    grid-area: nav;
+    height: 50px;
+    background: #2c3e50;
+ }
+ nav ul {
+    padding: 0;
+    margin: 0;
+    float: right;
+    margin-right: 30px;
+ }
+ nav ul li {
+    background: #2c3e50;
+    position: relative;
+    list-style: none;
+    display: inline-block;
+ }
+ nav ul li a {
+    display: block;
+    padding: 0 15px;
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 20px;
+ }
+ main {
+    background:  #eee;
+    grid-area: main;
+ }
+ .sidebar {
+    background:  #eee;
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+ }
+ footer {
+    background:  #eee;
+    grid-area: footer;
+ }
+ #isi {
+    padding: 0;
+    width: 98%;
+    height: auto;
+    position: relative;
+    margin-top: 5px;
+ }
+ .isiposting {
+    width: 98%;
+    height: auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 0;
+ }
+ .gambardepan {
+    float: left;
+    height: 100px;
+    width: 100px;
+    margin-right: 5px;
+    margin-top: auto;
+    margin-left: 5px;
+    padding: 0;
+    border: 2px solid #dddddd;
+ }
+ .isiposting h2 {
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    margin-top: 8px;
+    margin-bottom: 2px;
+ }
+ .isiposting a {
+    text-decoration: none;
+ }
+ .isiposting a:hover {
+    color: black;
+ }
+ 
+ @media only screen and (max-width: 600px) {
+ .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 9.5fr 9.5fr 2fr;
+    grid-template-areas:
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+ }
+ }
+    
